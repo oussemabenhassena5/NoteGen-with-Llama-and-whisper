@@ -1,14 +1,13 @@
-# NoteGen: Automate Your Note-Taking Process With LLM
+# NoteGen: AI-Powered Video Note Generation
 
-**NoteGen** is a tool designed to automate the process of generating detailed notes from YouTube video transcripts. Using Google's Gemini API and OpenAI's Whisper model, NoteGen extracts key insights, critical information, and actionable takeaways from video content, providing a concise summary formatted as bullet points.
+**NoteGen** is an intelligent tool that automatically generates structured notes from YouTube videos using cutting-edge AI. Powered by LLaMA3-70B via Groq's inference engine and OpenAI's Whisper, it transforms video content into well-organized summaries.
 
 ## Features
-
-- Extract transcripts from YouTube videos.
-- Generate transcripts using OpenAI's Whisper model if transcripts are disabled.
-- Summarize transcripts into comprehensive notes.
-- Focus on main points, critical information, key takeaways, examples, quotes, and actionable steps.
-- Easy-to-use interface powered by Streamlit.
+- Dual transcript extraction (native YouTube/Whisper ASR)
+- LLaMA3-70B powered summarization via Groq's ultra-fast API
+- Multi-language support (5 languages)
+- Interactive preview with video thumbnail
+- Conversation history logging
 
 ## How It Works
 
