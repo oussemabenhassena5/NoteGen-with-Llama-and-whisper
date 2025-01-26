@@ -40,7 +40,7 @@ To run NoteGen locally, follow these steps:
 
 4. Create a `.env` file in the root directory and add your Google API key:
     ```
-    GOOGLE_API_KEY=your_google_api_key_here
+    GROQ_API_KEY=your_groq_api_key_here
     ```
 
 5. Run the Streamlit app:
@@ -65,4 +65,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [YouTube Transcript API](https://github.com/jdepoix/youtube-transcript-api)
 - [PyTube](https://github.com/pytube/pytube)
 - [OpenAI Whisper](https://github.com/openai/whisper)
-- [Google Gemini API](https://ai.google/tools/)
+- [Llama Large Language Model](https://www.llama.com/)
