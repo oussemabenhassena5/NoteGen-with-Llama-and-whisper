@@ -123,6 +123,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
     
 **Built with ❤️ by OUSSEMA**
 
-[LinkedIn](linkedin.com/in/oussema-ben-hassena-b445122a4) 
+[LinkedIn](https://www.linkedin.com/in/oussema-ben-hassena-b445122a4/) 
 
 </div>
