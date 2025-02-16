@@ -28,7 +28,11 @@ def main():
     st.set_page_config(page_title="SmartNotes", layout="wide")
     st.title("📝 SmartNotes: AI-Powered Video Insights")
 
-    # Sidebar for inputs
+    # Initialize session state
+    if "process_requested" not in st.session_state:
+        st.session_state.process_requested = False
+
+    # Sidebar for inputs and thumbnail
     with st.sidebar:
         st.header("Configuration")
         youtube_url = st.text_input(
@@ -38,30 +42,46 @@ def main():
             "Output Language:", options=list(SUPPORTED_LANGUAGES.keys())
         )
 
-        if st.button("Generate Notes"):
+        if st.button("⚡ Generate Notes"):
             try:
                 validate_api_keys()
                 if not validate_youtube_url(youtube_url):
                     st.error("Invalid YouTube URL format")
                     return
 
-                log_processing(youtube_url, language)
-                process_video(youtube_url, SUPPORTED_LANGUAGES[language])
+                # Set the flag and store parameters
+                st.session_state.process_requested = True
+                st.session_state.youtube_url = youtube_url
+                st.session_state.language = language
 
             except Exception as e:
                 st.error(f"Processing error: {str(e)}")
 
+    # Process video if requested
+    if st.session_state.process_requested:
+        log_processing(st.session_state.youtube_url, st.session_state.language)
+        process_video(
+            st.session_state.youtube_url, SUPPORTED_LANGUAGES[st.session_state.language]
+        )
+        # Reset the flag
+        st.session_state.process_requested = False
+
 
 def process_video(url: str, lang_code: str):
     """Main processing pipeline."""
-    with st.spinner("🔍 Extracting video information..."):
-        video_id = extract_video_id(url)
-        if not video_id:
-            st.error("Failed to extract video ID")
-            return
+    # Show thumbnail in sidebar
+    with st.sidebar:
+        with st.spinner("🔍 Extracting video information..."):
+            video_id = extract_video_id(url)
+            if not video_id:
+                st.error("Failed to extract video ID")
+                return
 
-        st.image(f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True)
+            st.image(
+                f"http://img.youtube.com/vi/{video_id}/0.jpg", use_column_width=True
+            )
 
+    # Show processing status and results in main content area
     with st.spinner("📝 Extracting transcript..."):
         transcript = get_youtube_transcript(video_id, ["en", lang_code])
         if not transcript:
@@ -73,7 +93,7 @@ def process_video(url: str, lang_code: str):
     with st.spinner("🧠 Generating notes..."):
         notes = generate_notes(transcript, language=lang_code)
 
-    st.subheader("Generated Notes")
+    st.subheader("🌟 Generated Notes")
     st.markdown(notes, unsafe_allow_html=True)
     st.success("✅ Analysis complete!")
 
