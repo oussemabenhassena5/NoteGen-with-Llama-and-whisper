@@ -1,10 +1,10 @@
-# 🎥 NoteGen: Transform YouTube Videos into Intelligent Notes
+# 🎥 SmartNotes: Transform YouTube Videos into Intelligent Notes
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Powered by LLaMA3](https://img.shields.io/badge/Powered%20by-LLaMA3--70B-blue)](https://ai.meta.com/llama/)
 [![OpenAI Whisper](https://img.shields.io/badge/ASR-OpenAI%20Whisper-green)](https://github.com/openai/whisper)
 
-**NoteGen** harnesses the power of cutting-edge AI to revolutionize how we learn from video content. By combining Meta's LLaMA3-70B (via Groq's lightning-fast inference engine) with OpenAI's Whisper, NoteGen transforms YouTube videos into comprehensive, structured notes that capture the essence of any content.
+**SmartNotes** harnesses the power of cutting-edge AI to revolutionize how we learn from video content. By combining Meta's LLaMA3-70B (via Groq's lightning-fast inference engine) with OpenAI's Whisper, SmartNotes transforms YouTube videos into comprehensive, structured notes that capture the essence of any content.
 
 ## 🚀 Key Features
 
@@ -33,8 +33,8 @@ graph LR
 
 1. **Clone & Navigate**:
     ```bash
-    git clone https://github.com/oussemabenhassena5/NoteGen-with-Llama-and-whisper.git
-    cd NoteGen
+    git clone https://github.com/oussemabenhassena5/SmartNotes-with-Llama-and-whisper.git
+    cd SmartNotes
     ```
 
 2. **Set Up Environment**:
@@ -58,7 +58,7 @@ graph LR
 ## 💡 Usage Example
 
 ```python
-from notegen import VideoProcessor
+from smartnotes import VideoProcessor
 
 # Initialize processor
 processor = VideoProcessor(video_url="https://youtube.com/watch?v=example")
@@ -88,7 +88,7 @@ print(notes.key_points)
 
 ## 🤝 Contributing
 
-Your expertise can help make NoteGen even better! Here's how to contribute:
+Your expertise can help make SmartNotes even better! Here's how to contribute:
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
